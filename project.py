@@ -15,6 +15,7 @@ def project():
         This project focuses on defect analysis in the manufacturing industry. 
         The data used includes information on defect type, severity, inspection method, defect location, and repair costs. 
         This data can be used to analyze defect patterns, improve quality control processes, and assess the impact of defects on product quality and production costs.
+      
        **Objectives 🎯:**
         - Analyze production defect patterns (EDA).
         - Create a prediction model for defect severity.

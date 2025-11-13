@@ -37,7 +37,7 @@ def kontak():
                 <div class="contact-text">GitHub</div>
             </td>
             <td>
-                <a href="https://wa.me/628123970898" target="_blank">
+                <a href="https://wa.me/6282123970898" target="_blank">
                     <img src="https://img.icons8.com/color/64/000000/whatsapp.png"/>
                 </a>
                 <div class="contact-text">WhatsApp</div>
