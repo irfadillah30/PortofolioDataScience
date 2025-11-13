@@ -96,7 +96,7 @@ def prediction():
     selected_month = st.selectbox("Month Options:", month_options)
     selected_year = st.selectbox("Year Options:", year_options)
 
-    if st.button("Prediksi"):
+    if st.button("Prediction"):
         # Filter data sesuai pilihan user
         df_sample = df[(df['defect_type'] == selected_defect) &
                        (df['defect_location'] == selected_location) &
