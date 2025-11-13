@@ -63,7 +63,7 @@ def train_repair_model():
 # Fungsi prediksi interaktif
 # -----------------------
 def prediction():
-    st.subheader("Prediksi Tingkat Keparahan & Biaya Perbaikan")
+    st.subheader("Predicted Severity & Repair Costs")
 
     # ---------------- Load / Train Model ----------------
     try:
@@ -91,10 +91,10 @@ def prediction():
             year_options.append(y)
     year_options = sorted(year_options)
 
-    selected_defect = st.selectbox("Pilih Jenis Cacat:", defect_options)
-    selected_location = st.selectbox("Pilih Lokasi Cacat:", location_options)
-    selected_month = st.selectbox("Pilih Bulan:", month_options)
-    selected_year = st.selectbox("Pilih Tahun:", year_options)
+    selected_defect = st.selectbox("Select the defect type:", defect_options)
+    selected_location = st.selectbox("Select the Location Of the Defect:", location_options)
+    selected_month = st.selectbox("Month Options:", month_options)
+    selected_year = st.selectbox("Year Options:", year_options)
 
     if st.button("Prediksi"):
         # Filter data sesuai pilihan user
@@ -104,7 +104,7 @@ def prediction():
                        (df['year'] == selected_year)]
 
         if df_sample.empty:
-            st.warning("Melakukan prediksi simulasi.")
+            st.warning("Performing Simulation Predictions.")
             # Buat 1 baris dummy untuk prediksi
             df_sample = pd.DataFrame([{
                 "defect_type": selected_defect,
@@ -140,11 +140,11 @@ def prediction():
         total_cost = df_sample['predicted_repair_cost'].sum()
 
         # ================= Tampilkan Hasil =================
-        st.subheader("Hasil Prediksi ")
-        st.write(f"Jumlah kasus : **{len(df_sample)}**")
+        st.subheader("Prediction Results")
+        st.write(f"Number of Cases : **{len(df_sample)}**")
         
-        st.write("Tingkat Keparahan (per kategori) :")
+        st.write("Severity Levels (per kategori) :")
         for sev, count in severity_counts.items():
-            st.write(f"- {sev} : {count} kasus")
+            st.write(f"- {sev} : {count} Cases")
         
-        st.write(f"Total Biaya Perbaikan: **Rp. {total_cost:,.0f}**")
+        st.write(f"Total Repair Costs : **Rp. {total_cost:,.0f}**")
